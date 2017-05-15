@@ -1,0 +1,54 @@
+= 1.4 – 01/01/2016 =
+* NEW – Better design
+* NEW – Detailed guides
+* NEW - New method to recieve the Identity_secret and the Shared_secret
+* NEW - New winner animation
+* NEW - Maximum value and maximum skins limit added
+* NEW - Can't deposit twice to avoid these limitations ( Maximum value and maximum skins )
+* NEW - Maximum value added ( You can't deposit more than 20$ for example )
+* NEW - Can't deposit twice to avoid these limitations either ( Maximum value added )
+* NEW - Item price check, declines if its unknown, undefined, etc.
+* NEW - Declines escrow trades
+* NEW - Declines if there is no trade url
+* NEW - If the person is banned from the site it declines the offer.
+* NEW - Item name fixes, the bot now accepts items with ' in their name ( For example , man'o war )
+* FIX - Jackpot circle has been centered
+* FIX - Chat has been ligned out correctly
+* FIX - Scrollbar at jackpot circle has been removed
+
+
+= 1.3 – 23/12/2015 =
+* NEW – Bot fix Steam Escrow
+* FIX – Double deposit issue fix
+= 1.2 - 25/10/2015 =
+
+* NEW - Winner animation
+* NEW - Show chance of winning in bar
+* NEW - Start game when 2 users are in the pot 
+* Improvement - Chat issues fixed
+* Fix - Double send offer bot
+* Fix - Man o War bug
+* Fix - Rake issue when rake was send to winner
+* Fix - Auto decline offer
+* Fix - Bot crash at 50 items
+* Fix - Prices updated and better API to steammarket
+
+= 1.1 - 05/10/2015 =
+
+* NEW - Bootstrap 3 Layout
+* Feature - Winner shown on mainpage after roundtime
+* Feature - Chat added
+* Fix - Double send offer bot
+* Fix - Auto decline offer
+
+= 1.0.1 - 01/09/2015 =
+
+* Fix - Database missing items
+* Fix - Prices not loading but showing 0.00 value
+* Improvement - Rake now has a maximum
+* Improvement - Api from steammarket
+
+= 1.0.0 - 23/08/2015 =
+
+* First version
+

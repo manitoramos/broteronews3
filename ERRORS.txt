@@ -1,0 +1,11 @@
+502 , 503 - Wrong Node.JS version / could be something else.
+
+Error: steammobile - Mobile authenticator was already enabled , 2fa tries to turn it on , so please turn mobile authenticator off first
+
+504 - Steamcommunity down / could be something else
+
+For any other errors , please message us or check our site : csgo.network > FAQ
+
+
+If you have any error and you know how to solve them , Please add us on skype : csgo.network.mich & csgo.network.daan
+we would love to hear how you solved a problem.

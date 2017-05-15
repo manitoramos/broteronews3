@@ -1,0 +1,46 @@
+[1226/203037:WARNING:resource_bundle.cc(291)] locale_file_path.empty() for locale 
+[1226/203037:ERROR:main_delegate.cc(696)] Could not load locale pak for en-US
+[1226/203037:WARNING:resource_bundle.cc(489)] locale resources are not loaded
+[1226/203039:WARNING:resource_bundle.cc(489)] locale resources are not loaded
+[1226/203039:WARNING:resource_bundle.cc(489)] locale resources are not loaded
+[1226/203039:WARNING:resource_bundle.cc(489)] locale resources are not loaded
+[1226/203039:WARNING:resource_bundle.cc(489)] locale resources are not loaded
+[1226/203042:WARNING:resource_bundle.cc(291)] locale_file_path.empty() for locale 
+[1226/203042:WARNING:resource_bundle.cc(291)] locale_file_path.empty() for locale 
+[1226/203042:ERROR:main_delegate.cc(696)] Could not load locale pak for en-US
+[1226/203042:ERROR:gpu_child_thread.cc(227)] Exiting GPU process due to errors during initialization
+[1226/203042:ERROR:renderer_main.cc(200)] Running without renderer sandbox
+[1226/203042:ERROR:browser_gpu_channel_host_factory.cc(121)] Failed to launch GPU process.
+[1226/204527:WARNING:resource_bundle.cc(291)] locale_file_path.empty() for locale 
+[1226/204527:ERROR:main_delegate.cc(696)] Could not load locale pak for en-US
+[1226/204527:WARNING:resource_bundle.cc(489)] locale resources are not loaded
+[1226/204527:WARNING:resource_bundle.cc(489)] locale resources are not loaded
+[1226/204527:WARNING:resource_bundle.cc(489)] locale resources are not loaded
+[1226/204527:WARNING:resource_bundle.cc(291)] locale_file_path.empty() for locale 
+[1226/204527:ERROR:main_delegate.cc(696)] Could not load locale pak for en-US
+[1226/204527:ERROR:gpu_child_thread.cc(227)] Exiting GPU process due to errors during initialization
+[1226/204527:WARNING:resource_bundle.cc(291)] locale_file_path.empty() for locale 
+[1226/204527:ERROR:main_delegate.cc(696)] Could not load locale pak for en-US
+[1226/204527:ERROR:renderer_main.cc(200)] Running without renderer sandbox
+[1226/204527:ERROR:browser_gpu_channel_host_factory.cc(121)] Failed to launch GPU process.
+[1226/204539:WARNING:resource_bundle.cc(489)] locale resources are not loaded
+[1226/204539:WARNING:resource_bundle.cc(489)] locale resources are not loaded
+[1226/204539:WARNING:resource_bundle.cc(291)] locale_file_path.empty() for locale 
+[1226/204539:ERROR:main_delegate.cc(696)] Could not load locale pak for en-US
+[1226/204539:ERROR:renderer_main.cc(200)] Running without renderer sandbox
+[1227/104136:WARNING:resource_bundle.cc(291)] locale_file_path.empty() for locale 
+[1227/104136:ERROR:main_delegate.cc(696)] Could not load locale pak for en-US
+[1227/104136:WARNING:resource_bundle.cc(489)] locale resources are not loaded
+[1227/104137:WARNING:resource_bundle.cc(291)] locale_file_path.empty() for locale 
+[1227/104137:ERROR:main_delegate.cc(696)] Could not load locale pak for en-US
+[1227/104137:ERROR:gpu_child_thread.cc(227)] Exiting GPU process due to errors during initialization
+[1227/104138:WARNING:resource_bundle.cc(291)] locale_file_path.empty() for locale 
+[1227/104138:ERROR:main_delegate.cc(696)] Could not load locale pak for en-US
+[1227/104138:WARNING:resource_bundle.cc(489)] locale resources are not loaded
+[1227/104138:WARNING:resource_bundle.cc(489)] locale resources are not loaded
+[1227/104138:ERROR:renderer_main.cc(200)] Running without renderer sandbox
+[1227/104229:WARNING:resource_bundle.cc(489)] locale resources are not loaded
+[1227/104229:WARNING:resource_bundle.cc(489)] locale resources are not loaded
+[1227/104229:WARNING:resource_bundle.cc(291)] locale_file_path.empty() for locale 
+[1227/104229:ERROR:main_delegate.cc(696)] Could not load locale pak for en-US
+[1227/104229:ERROR:renderer_main.cc(200)] Running without renderer sandbox

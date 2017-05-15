@@ -1,0 +1,155 @@
+Thankyou for your purchase at CSGO.Network.
+This is an indepth tutorial guide on how to set this up.
+PLEASE READ THIS TUTORIAL FULLY BEFORE STARTING.
+There are a lot of Guides in 1.4 , Just look around and you will find them. All errors we know how to fix are described in ERRORS.txt
+We highly recommend using a VPS as you dont need to run the bot manually and you get a lot more possibilities from a VPS than webhosting.
+
+-------------------------------------------------------------------
+For this tutorial we are using a VPS from Digital Ocean , UBUNTU
+You need the following items installed on your VPS :
+- phpmyadmin
+- mysql
+- Node version 0.12
+- apache
+
+If you dont want to install this yourself , please get our VPS package as it comes pre-installed with all of this and 1.4
+-------------------------------------------------------------------
+VPS CONFIGURATION :
+
+1. Open PuTTY 
+2. Put your VPS IP address
+3. Run , and click yes
+4. Fill in root as username and put the password you recieved in your mail from digital ocean
+5. Put your Password again
+6. Choose a new password and confirm it
+8. run these commands if you're using our VPS : 
+apt-get update
+apt-get upgrade
+9. your done , close this for now.
+-------------------------------------------------------------------
+WEBSITE CONFIGURATION
+- Open your website ip address in your browser and head over to : yourip/phpmyadmin
+- Please contact us on this point as we need to give you a user , or you can create on yourself through putty. 
+- We will setup your whole phpmyadmin account and give you the login details afterwards.
+
+2.  head over to a FTP program, we highly recommend winSCP
+3. Connect to it with your details : IP , root , password , port 22
+4. Go one folder up and head to var > www > html
+5. Export , index.php , pdocon.php , set.php , getwinner34634f.php , steamauth > settings.php ( not the main settings.php in the main html map )
+6. Edit all those files.
+
+
+READ ALL GREEN TAGS GOOD THAT ARE IN THE FOLLOWING FILES :
+--------------------------------------------
+Index.php :
+Line 303 & 383 - Add your steam trade url 
+In index.php you can change the main look of your site , all the text etc on the site is in this file.
+--------------------------------------------
+pdocon.php :
+Edit all your information. For the MySQL settings , use the login info for PHPMYADMIN
+The username and database is the same if we made your PHPMYADMIN database.
+If you configure this wrong , your site won't display item prices , it will show up as $NaN
+--------------------------------------------
+set.php :
+Edit all your info in it with your MySQL Settings, same as pdocon.php
+Put your website name as yourdomain.com
+--------------------------------------------
+getwinner34634f.php :
+Line 82 - Change the Domain to your domain.com , change 99 to whatever bonus you want to give people if they put your website in there steam name. 
+--------------------------------------------
+Steam Auth > settings.php
+this is the redirect if people sign in. Put your bots API key ( YOU NEED TO GET IT THROUGH THE BOT ) and put your domain name.
+You dont need to do anything else in settings.php
+--------------------------------------------
+If you have done this and saved it. Reupload all these files to the place where you exported them, so all the files except settings.php back to the main html folder.
+And settings.php into steamauth.
+
+You have now set up your site.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+BOT CONFIG.
+
+For the bot you need to have Node 0.12 and forever on your VPS
+
+What you need to set up your bot :
+- Phone number
+- Steam Bot account
+- 2fa / SDA
+- Steam ID 64 ( www.steamid.io ) for your MAIN steam account and a Steam ID 64 for your Bot account
+- Bot API Key linked with your site
+- site name and mysql info
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Let's start off with all the information in sell.js
+
+1. Line 1 - Fill in your steam id 64 from your MAIN account. 
+2. Line 5 - Fill in your steam id 64 from your BOT account.
+3. Line 16 - Fill in your steam login from your bot account.
+4. Line 17 - Fill in your steam login from your bot account.
+5. Line 50 - Fill in your site url.
+6. Line 57 - Fill in your Bots API key.
+7. Line 61 / 64 - Fill in your MySQL settings.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Time to configurate the 2 codes you have to fill in so your bot is compitable with Steam ESCROW.
+We are looking for the Identity_Secret and Shared_Secret
+
+MAKE SURE BEFORE YOU DO THIS MOBILE AUTHENTICATOR IS TURNED OFF ON YOUR BOT AND THAT THERE IS NO PHONE NUMBER ADDED.
+
+Method 1 :  SDA ( Steam Desktop Authenticator )
+
+1. Open Steam Desktop Authenticator.exe located in Steam.Desktop.Authenticator.v1.0.0
+2. Click you want to sign up for a new account
+3. Go through all the steps
+4. Go to the folder Steam.Desktop.Authenticator.v1.0.0 , and go to the map called maFiles and open yourbotssteami64 file with notepad++
+5. Search for the Shared_Secret and the identity_secret , copy these codes.
+6. Go to sell.js and paste them on line 6 and 7
+
+
+MAKE SURE BEFORE YOU DO THIS MOBILE AUTHENTICATOR IS TURNED OFF ON YOUR BOT AND THAT THERE IS NO PHONE NUMBER ADDED.
+
+Method 2 : 2fa
+
+1. Download NODE.JS at https://nodejs.org/en/
+2. open Command prompt > run > command prompt 
+3. type in npm in command prompt
+4. then type this single commands :
+npm install steamcommunity
+npm install fs
+npm install readline
+--------------------------------------------------------------
+Steam section :
+1. Go to your bots steam account
+2. Go to account details
+3. add phone number
+4. Put your phone number and copy the code you got and paste it on your desktop in a notepad file DONT PUT IT ON STEAM YET
+---------------------------------------------------------------
+go to the 2fa folder located in the bot folder and copy the folder path
+in my example  : C:\Users\MICHAEL\Desktop\2fa
+
+type in command prompt cd C:\Users\MICHAEL\Desktop\2fa ( your path ofcourse )
+type in command prompt node 2fa.js
+It will ask for username : put your bots login
+password : bots password
+then you will get a mail on your bots email account. get the code and fill it in.
+Then it will ask for an activation code , get the code from your notepad and put it at the activation code.
+press enter a few times.
+mark the whole cmd
+and copy it and paste it in a notepad.
+Get the identity_secret and shared_secret
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+After you have fully configured your sell.js your ready to go. Start putty again and login, Type cd /var/www/bot , then type node sell.js , if it logged in correctly you're ready to go.
+
+Your bot will have recieved a 7 day trade hold, what means that after 7 days the 72 hours hold will be removed.
+
+
+FEW EXTRA THINGS YOU CAN CHANGE :
+
+1. Change the name of the getwinner34634f.php to getwinner3294238139038123131.php or something very random! 
+After you have done that , copy the name you gave it , go to sell.js > line 97 , and change the getwinner34634f.php to the new name you gave it.
+
+2. Go to users_online and fill in your MySQL settings aswell
+
+

@@ -1,0 +1,13 @@
+In this file you can find some helpful tips to set up your site.
+-------------------------------------------------------------------
+How do i add a logo? > frontend > gfx > edit dare.png
+
+Change the tab bar text? > JS > Main.php
+
+How do i change the layout? > The main file is located in frontend > css > front7f6fy.css
+
+How do i change text on the website? Index.php
+
+How do i add myself as admin to the chat? > ajax > chat.php 
+
+
