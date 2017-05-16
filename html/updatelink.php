@@ -2,7 +2,9 @@
 @include_once('set.php');
 @include_once('steamauth/steamauth.php');
 if(!isset($_SESSION["steamid"])) {
-	Header("Location: index.php");
+	echo $_SESSION["steamid"];
+	echo "sd";
+	Header("Location: ./index.php");
 	exit;
 }
 $link = $_POST["link"];

@@ -60,7 +60,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && !empty($_SERVER['HTTP_X_REQUESTED
 
     $file = 'chat.txt';
     $adminss = array(
-        'steam64id', // ADD YOUR STEAM64ID HERE * STEAMID.IO *
+        '76561198099632556', // ADD YOUR STEAM64ID HERE * STEAMID.IO *
         'steam64id',
         );
     foreach($adminss as $culoarez){ 

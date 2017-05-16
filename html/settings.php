@@ -14,7 +14,7 @@ if(!isset($_SESSION["steamid"])) {
 }
 @include_once('steamauth/userInfo.php');
 
-header("Location: /index.php");
+header("Location: index.php");
 die();?>
 <!DOCTYPE html>
 <html lang="en">
