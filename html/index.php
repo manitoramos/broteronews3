@@ -593,129 +593,227 @@ a:hover .xtooltip {
 									<?php } ?>
 
  								</span>
- </div>
- </div>
- </div>
- </div>
-		<div class="col-xs-24 messages messages-img" style="width:250px;">
-			<?php if(isadmin($_SESSION['steamid'])){
-			echo'Admin tools: [<a href="chatadm.php?do=clear" onclick="return popitup(\'chatadm.php?do=clear\');">clear chat</a>], [<a href="chatadm.php?do=toggle" onclick="return popitup(\'chatadm.php?do=toggle\');">turn '.(chaton() ? 'off' : 'on').'</a>]';
-		} ?>
-<? include ('mini-chat.php'); ?>
-	 </div> </div>
- </div>
-	 <div id="raffle"><div class="col-xs-24 raffle"> <div class="cont"> <div class="circle"> <img id="raffle-img"> </div> <h4 class="name" id="raffle-name"></h4> 
-	 <h4 id="countdown-raffle-timer" data-countdown="2020-08-08"></h4> 
-	 <a class="btn btn-default" href="?login">LOG IN</a> </div> </div> </div> </div> </div> </div> 
-	 <div class="site-overlay" onclick="system.menu.setHomepage()"></div> 
-	 <div class="site winners col-xs-24 col-sm-18 col-md-14 col-lg-12"> 
-	 <?php
-	 $rs = mysql_query("SELECT * FROM `users` ORDER BY `won` DESC LIMIT 10");
-	$i = 1;
-	 ?>
-	 <h2>Top players</h2>
-	 <table class="table table-condensed table-hover"> 
-	 <thead> <th>Rank</th> <th class="text-left">Nickname</th> 
-	 <th class="hidden-xs">Total games</th> <th class="hidden-xs">Won ($)</th>  </thead> 
-	 <tbody id="top-players-tbody">
-		 <?php while($row=mysql_fetch_array($rs)): ?>
-	 <?php if ($i <= "3"):?>
-	 <tr class = "top">
-	 <td class = "number"><?php echo $i;?></td>
-	 <td class="text-left">
-	 <a rel="nofollow" target="_blank" href= <?php echo $row['steamprofile']; ?> class="img hidden-xs"> <img src=<?php echo $row['avatar']; ?>> </a>
-	 <a rel="nofollow" target="_blank" href=<?php echo $row['steamprofile']; ?> class="name"> <?php echo $row['name']; ?> </a>
-	 </td>
-	 <td class="hidden-xs" target="_blank"> <?php echo $row['games']; ?> </td>
-	 <td class="hidden-xs" target="_blank"> <?php echo $row['won']; ?> </td>
-<?php else: ?>
-	<tr class="">
-	 <td class = "number"><?php echo $i;?></td>
-	 <td class="text-left">
-	 <a rel="nofollow" target="_blank" href= <?php echo $row['steamprofile']; ?> class="img hidden-xs"> <img src=<?php echo $row['avatar']; ?>> </a>
-	 <a rel="nofollow" target="_blank" href=<?php echo $row['steamprofile']; ?> class="name"> <?php echo $row['name']; ?> </a>
-	 </td>
-	 <td class="hidden-xs" target="_blank"> <?php echo $row['games']; ?> </td>
-	 <td class="hidden-xs" target="_blank"> <?php echo $row['won']; ?> </td>
-	 </tr>
-	 </tr>
-<?php endif; ?>
-<?php $i++;?> 
-<?php endwhile; ?>
-	 </tbody> </table> 
-	 <a class="close" data-page="play"></a> </div> 
-	 <div class="site myhistory col-xs-24 col-sm-18 col-md-14 col-lg-12"> 
-	 <h2>Winners</h2> <table class="table"> <thead> <th>Rank</th> <th>Nickname</th> <th>Total wins</th> <th>Won</th> </thead> 
-	 <tbody> <tr> <td>1</td> </tr> </tbody> </table> <a class="close" data-page="play"></a> </div> 
-	 <div class="site history col-xs-24 col-sm-18 col-md-14 col-lg-12"> <h2>History</h2> <div id="history">
-	 <?php 
-	 $gameid = fetchinfo("value", "info", "name", "current_game");
-$query  = mysql_query("SELECT * FROM `games` WHERE `id` < $gameid ORDER BY `id` DESC LIMIT 10");
-while($rowd=mysql_fetch_array($query)):
-	//define stuff
-	$lastwinner=$rowd["userid"];
-	$winnercos =$rowd['cost'];
-	$winnerpercent = $rowd['percent'];
-	$winneravatar=fetchinfo("avatar", "users", "steamid", $lastwinner);
-	$winnername = fetchinfo("name", "users", "steamid", $lastwinner);
-	$steamlink = fetchinfo("steamprofile", "users", "steamid", $lastwinner); ?>
-	<div class="cont row">
-	<div class="col-xs-24 header">
-	</div>
-	<div class="col-xs-24 body">
-	<div class="col-xs-16 col-sm-16">
-	<a rel="nofollow" target="_blank" href=<?php echo $steamlink; ?> class="img hidden-xs">
-	<img src=<?php echo $winneravatar; ?> > </a>
-	<a rel="nofollow" target="_blank" href=<?php echo $steamlink; ?> class="name"> <?php echo $winnername; ?> </a>
-	</div>
-	<div class="right text-right">
-	<span class="win">
-	Win: <span>$ <?php echo round($winnercos, 3); ?> </span></span>
-	<span class="chance">
-	Chance: <span><?php echo round($winnerpercent, 2); ?>% </span> </span> </div> </div>
-	<div class="col-xs-24 footer">
-	<!-- here I start with csgo items, so... another while -->
-
-	<?php 
-	$query2 = mysql_query("SELECT * FROM `game".$rowd["id"]."`");
-	while($rowf = mysql_fetch_array($query2)): 
-		//define stuff x2
-		$imglink = 'http://steamcommunity-a.akamaihd.net/economy/image/'.$rowf["image"].'/70fx58f';
-		$wep = $rowf["item"].' - $'.$rowf["value"];
-	?>
-	<a href="#">
-	<img src=<?php echo $imglink; ?> width="46" height="40">
-	<span class="xtooltip"><?php echo $wep; ?></span>
-	</a>
-	<?php endwhile; ?>
-	</div>
-
-	</div>
-	<?php endwhile; ?>
-	 </div> 
-	 <a class="close" data-page="play"></a> </div> 
-	 <div class="site settings col-xs-24 col-sm-18 col-md-14 col-lg-12"> <h2>Settings</h2> <div id="settings"></div>
-	 <div class="block-area trade-url-area">
-	 <div role="alert" class="AlertX alert-infoX alert-trade-url alert-dimissible fade in">
-
-				<div class="content">
-					<div class="history_game">
-					<form method="POST" action="./updatelink.php">
-						<label for="link" style="color: #678098; font-size: 17pt;font-family: roboto;">Your Steam Trade URL: </label>
-						<input type="text" name="link" class="form-control trade-url-input"style="" id="link" value="<?php  echo fetchinfo("tlink","users","steamid",$_SESSION["steamid"]); ?>" placeholder="Link exchange">
-						<p style="color: #678098; font-size: 14pt;font-family: roboto;">Fetch your Steam URL: <a href="http://steamcommunity.com/id/me/tradeoffers/privacy#trade_offer_access_url" target="_blank" style="color: #678098; font-size: 12pt;font-family: roboto;">http://steamcommunity.com/id/me/tradeoffers/privacy</a></p>
-						<p style="color: #FF3F3F; font-size: 12pt;font-family: roboto;">Make sure your Steam URL is Valid!</p>
-						<p style="color: #FF3F3F; font-size: 12pt;font-family: roboto;">Entering an invalid URL would prevent you from getting your winnings!</p>
-								<input type="submit" class="btn btn-primary btn-lg" href="#" value="Save">
-							</form>
+ 							</div>
+						</div>
 					</div>
 				</div>
+				<div class="col-xs-24 messages messages-img" style="width:250px;">
+					<?php 
+					if(isadmin($_SESSION['steamid'])){
+						echo'Admin tools: [<a href="chatadm.php?do=clear" onclick="return popitup(\'chatadm.php?do=clear\');">clear chat</a>], [<a href="chatadm.php?do=toggle" onclick="return popitup(\'chatadm.php?do=toggle\');">turn '.(chaton() ? 'off' : 'on').'</a>]';
+					} 
+					?>
+					<? include ('mini-chat.php'); ?>
+	 			</div>
+	 		</div>
+ 		</div>
+		<div id="raffle">
+			<div class="col-xs-24 raffle">
+				<div class="cont">
+					<div class="circle">
+						<img id="raffle-img">
+					</div>
+					<h4 class="name" id="raffle-name"></h4>
+	 				<h4 id="countdown-raffle-timer" data-countdown="2020-08-08"></h4> 
+					<a class="btn btn-default" href="?login">LOG IN</a>
 				</div>
+			</div>
+		</div>
+	</div>
+</div>
+				</div> 
+<div class="site-overlay" onclick="system.menu.setHomepage()"></div> 
+	<div class="site winners col-xs-24 col-sm-18 col-md-14 col-lg-12"> 
+		<?php
+			$rs = mysql_query("SELECT * FROM `users` ORDER BY `won` DESC LIMIT 10");
+			$i = 1;
+		?>
+		
+		<h2>Top players</h2>
+		
+		<table class="table table-condensed table-hover"> 
+		
+			<thead>
+				<th>Rank</th>
+				<th class="text-left">Nickname</th> 
+				<th class="hidden-xs">Total games</th>
+				<th class="hidden-xs">Won ($)</th>
+			</thead> 
+			<tbody id="top-players-tbody">
+			
+				<?php while($row=mysql_fetch_array($rs)): ?>
+					<?php if ($i <= "3"):?>
+				
+						<tr class = "top">
+							<td class = "number"> 
+								<?php echo $i;?> 
+							</td>
+							<td class="text-left">
+								<a rel="nofollow" target="_blank" href= <?php echo $row['steamprofile']; ?> class="img hidden-xs"> 
+									<img src=<?php echo $row['avatar']; ?>>
+								</a>
+								<a rel="nofollow" target="_blank" href=<?php echo $row['steamprofile']; ?> class="name"> 
+									<?php echo $row['name']; ?> 
+								</a>
+							</td>
+							<td class="hidden-xs" target="_blank">
+								<?php echo $row['games']; ?> 
+							</td>
+							<td class="hidden-xs" target="_blank"> 
+								<?php echo $row['won']; ?> 
+							</td>
+						</tr>
+					<?php else: ?>
+						<tr class="">
+							<td class = "number">
+								<?php echo $i;?>
+							</td>
+							<td class="text-left">
+								<a rel="nofollow" target="_blank" href= <?php echo $row['steamprofile']; ?> class="img hidden-xs"> 
+									<img src=<?php echo $row['avatar']; ?>> 
+								</a>
+								<a rel="nofollow" target="_blank" href=<?php echo $row['steamprofile']; ?> class="name">
+									<?php echo $row['name']; ?> 
+								</a>
+							</td>
+							<td class="hidden-xs" target="_blank"> 
+								<?php echo $row['games']; ?> 
+							</td>
+							<td class="hidden-xs" target="_blank"> 
+								<?php echo $row['won']; ?> 
+							</td>
+						</tr>
+					<?php 
+						endif;
+						$i++;
+					?> 
+				<?php endwhile; ?>
+			</tbody>
+		</table> 
+		<a class="close" data-page="play"></a>
+	</div> 
+	<div class="site myhistory col-xs-24 col-sm-18 col-md-14 col-lg-12">
+	
+		<h2>Winners</h2>
+		
+		<table class="table">
+			<thead> 
+				<th>Rank</th> 
+				<th>Nickname</th> 
+				<th>Total wins</th> 
+				<th>Won</th> 
+			</thead> 
+			<tbody> 
+				<tr> 
+					<td>1</td> 
+				</tr>
+			</tbody>
+		</table>
+		
+		<a class="close" data-page="play"></a> 
+	</div> 
+	<div class="site history col-xs-24 col-sm-18 col-md-14 col-lg-12"> 
+	 
+		<h2>History</h2> 
+		
+		<div id="history">
+			 <?php 
+				$gameid = fetchinfo("value", "info", "name", "current_game");
+				$query  = mysql_query("SELECT * FROM `games` WHERE `id` < $gameid ORDER BY `id` DESC LIMIT 10");
+				while($rowd=mysql_fetch_array($query)):
+					//define stuff
+					$lastwinner=$rowd["userid"];
+					$winnercos =$rowd['cost'];
+					$winnerpercent = $rowd['percent'];
+					$winneravatar=fetchinfo("avatar", "users", "steamid", $lastwinner);
+					$winnername = fetchinfo("name", "users", "steamid", $lastwinner);
+					$steamlink = fetchinfo("steamprofile", "users", "steamid", $lastwinner); 
+			?>
+			<div class="cont row">
+				<div class="col-xs-24 header"></div>
+				<div class="col-xs-24 body">
+					<div class="col-xs-16 col-sm-16">
+						<a rel="nofollow" target="_blank" href=<?php echo $steamlink; ?> class="img hidden-xs">
+							<img src=<?php echo $winneravatar; ?> > 
+						</a>
+						<a rel="nofollow" target="_blank" href=<?php echo $steamlink; ?> class="name"> 
+							<?php echo $winnername; ?> 
+						</a>
+					</div>
+					<div class="right text-right">
+						<span class="win">
+							Win: 
+							<span>
+								$ <?php echo round($winnercos, 3); ?> 
+							</span>
+						</span>
+						<span class="chance">
+							Chance: 
+							<span>
+								<?php echo round($winnerpercent, 2); ?>% 
+							</span> 
+						</span> 
+					</div> 
 				</div>
-	 <a class="close" data-page="settings"></a></div>
+				<div class="col-xs-24 footer">
+					<!-- here I start with csgo items, so... another while -->
+					<?php 
+						$query2 = mysql_query("SELECT * FROM `game".$rowd["id"]."`");
+						while($rowf = mysql_fetch_array($query2)): 
+							//define stuff x2
+							$imglink = 'http://steamcommunity-a.akamaihd.net/economy/image/'.$rowf["image"].'/70fx58f';
+							$wep = $rowf["item"].' - $'.$rowf["value"];
+					?>
+						<a href="#">
+							<img src=<?php echo $imglink; ?> width="46" height="40">
+							<span class="xtooltip">
+								<?php echo $wep; ?>
+							</span>
+						</a>
+					<?php endwhile; ?>
+				</div>
+			</div>
+			<?php endwhile; ?>
+		</div> 
+		<a class="close" data-page="play"></a>
+	</div> 
+	<div class="site settings col-xs-24 col-sm-18 col-md-14 col-lg-12">
+	
+		<h2>Settings</h2>
 
-	 <div class="site faq col-xs-24 col-sm-18 col-md-14 col-lg-12"> 
-	 <h2>Website - Rules/FAQ</h2> <h3>Evolve Your Skins!</h3>
+		<div id="settings"></div>
+		<div class="block-area trade-url-area">
+			<div role="alert" class="AlertX alert-infoX alert-trade-url alert-dimissible fade in">
+				<div class="content">
+					<div class="history_game">
+						<form method="POST" action="./updatelink.php">
+							<label for="link" style="color: #678098; font-size: 17pt;font-family: roboto;">Your Steam Trade URL: </label>
+							<input type="text" name="link" class="form-control trade-url-input"style="" id="link" value="<?php  echo fetchinfo("tlink","users","steamid",$_SESSION["steamid"]); ?>" placeholder="Link exchange">
+							<p style="color: #678098; font-size: 14pt;font-family: roboto;">
+								Fetch your Steam URL: 
+								<a href="http://steamcommunity.com/id/me/tradeoffers/privacy#trade_offer_access_url" target="_blank" style="color: #678098; font-size: 12pt;font-family: roboto;">
+									http://steamcommunity.com/id/me/tradeoffers/privacy
+								</a>
+							</p>
+							<p style="color: #FF3F3F; font-size: 12pt;font-family: roboto;">
+								Make sure your Steam URL is Valid!
+							</p>
+							<p style="color: #FF3F3F; font-size: 12pt;font-family: roboto;">
+								Entering an invalid URL would prevent you from getting your winnings!
+							</p>
+							<input type="submit" class="btn btn-primary btn-lg" href="#" value="Save">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a class="close" data-page="settings"></a>
+	</div>
+
+	<div class="site faq col-xs-24 col-sm-18 col-md-14 col-lg-12">
+	
+		<h2>Website - Rules/FAQ</h2> 
+		<h3>Evolve Your Skins!</h3>
 	 <h4>The LOWEST commission jackpot site!</h4>
 	<h4>Mechanics are simple: More you contribute into the pool, Higher the chances you win the entire pool!</h4> - Login through Steam and connect your steam URL through Settings<br/>- Place your deposit!<br/>
 - The system calculates value for items that you deposited (valued by csgo.steamanalyst.com), for every dollar you get 100 points.<br/> 
