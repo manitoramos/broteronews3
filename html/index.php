@@ -320,7 +320,7 @@ a:hover .xtooltip {
   <img src=<?php echo $steamprofile['avatar']; ?>>
   <div class="desc">
   <a class="name" href=<?php echo $steamprofile['profileurl']; ?> target="_blank" rel="nofollow"> <?php echo $steamprofile['personaname']; ?></a>
-  <a class="deposit" href="https://steamcommunity.com/tradeoffer/new/?partner=93222312&token=2ws4zGGn">MAKE A DEPOSIT </a>  
+  <a class="deposit" href="https://steamcommunity.com/tradeoffer/new/?partner=427986800&token=Lv8txF4G">MAKE A DEPOSIT </a>  
   <a class="logout" href="steamauth/logout.php">Logout </a>
   </div>
   </li>
@@ -418,7 +418,7 @@ a:hover .xtooltip {
 
 
   Time left: <h4 id="countdown-timer"><span id="timeleft">0</span></h4>
-  <a class="btn btn-primary btn-lg" style="text-decoration: none;" href="https://steamcommunity.com/tradeoffer/new/?partner=93222312&token=2ws4zGGn" target="_blank" ><?php echo $msg[$lang]["ingame"]; ?> </a>
+  <a class="btn btn-primary btn-lg" style="text-decoration: none;" href="https://steamcommunity.com/tradeoffer/new/?partner=427986800&token=Lv8txF4G" target="_blank" ><?php echo $msg[$lang]["ingame"]; ?> </a>
 
   <?php endif; ?>
 <?php endif; ?>

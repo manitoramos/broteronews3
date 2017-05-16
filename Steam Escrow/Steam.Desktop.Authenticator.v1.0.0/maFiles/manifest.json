@@ -1,1 +1,1 @@
-{"encrypted":false,"first_run":false,"entries":[{"encryption_iv":null,"encryption_salt":null,"filename":"76561198143941545.maFile","steamid":76561198143941545}],"periodic_checking":false,"periodic_checking_interval":5}
+{"encrypted":true,"first_run":false,"entries":[{"encryption_iv":"7DaRX7uzkJFf6+xe7F26Fg==","encryption_salt":"sCcfn5IXVUY=","filename":"76561198388252528.maFile","steamid":76561198388252528}],"periodic_checking":true,"periodic_checking_interval":5,"periodic_checking_checkall":false,"auto_confirm_market_transactions":false,"auto_confirm_trades":false}
