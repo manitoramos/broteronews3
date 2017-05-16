@@ -126,16 +126,16 @@ function popitup(url) {
 function load_messes()
 	{
 		$.ajax({
-								type: "POST",
-								url:  "chatread.php",
-								data: "req=ok",
-								success: function(test)
-				{
-					$("#mcaht").empty();
-					$("#mcaht").append(test);
-					$("#mcaht").scrollTop();
-								}
-				});
+			type: "POST",
+			url:  "chatread.php",
+			data: "req=ok",
+			success: function(test)
+			{
+				$("#mcaht").empty();
+				$("#mcaht").append(test);
+				$("#mcaht").scrollTop();
+			}
+			});
 	}
 </script>
 <style type="text/css">
@@ -288,88 +288,202 @@ a:hover .xtooltip {
 <div class="result error" id="error"></div>
 
 <div id="left"> 
-<ul> <li class="logo">
-<a href="index.php" data-page="play"></a></li> <li class="active">
-<a href="index.php" class="play" data-page="play"><span></span>Play</a></li> 
-<li class="separator"></li> <li><a href="en/winners.php" class="winners" data-page="winners"><span></span>Top players</a></li> 
-<li class="separator"></li> <li><a href="history.php" class="history" data-page="history"><span></span>History</a></li> 
-<?php if(!isset($_SESSION["steamid"])):?>
-<li class="separator"></li> <li class="mini"><a href="en/faq.php" class="faq" data-page="faq"><i class="fa fa-question-circle"></i>FAQ</a></li>
-<?php else: ?>
-<li class="separator"></li> <li><a href="settings.php" class="settings" data-page="settings"> <span> </span>Settings</a></li>
-<li class="separator"></li> <li class="mini"><a href="en/faq.php" class="faq" data-page="faq"><i class="fa fa-question-circle"></i>FAQ</a></li>
-<?php endif; ?> 
-<li class="separator"></li> <li class="mini"><a href="en/rules.php" class="rules" data-page="rules"><i class="fa fa-shield"></i>Rules</a></li> 
-<li class="separator"></li> <li class="mini"><a href="https://Website.com/support" class="support" target="_blank"><i class="fa fa-life-ring">
-</i>Support</a></li> </ul> </div> <div id="container"> <div id="content-hidden"> <div class="col-lg-offset-19 col-lg-5 bglayer"></div> </div> <div id="top"> 
-<a href="index.php" class="sitename transition" data-page="play">WEB<span class="transition">site</span>.com - your skins etc!</a><ul id="right-section"> 
-
-<li class="el promo leadtext">Add <span>website.com</span> to your steam name and get <span>+6%</span> bonus<br/> to your winnings! (relog website)</li> 
- <li class="el" id="sign-in">
- <?php 
- if(!isset($_SESSION["steamid"])): ?>
-				<?php steamlogin(); ?>
-	<a href="?login" id="steam-login-url" rel="nofollow"></a> </li>
- <?php
- else: ?>
-
-	<li class="el" id="user-panel">
-	<?php $timenow = time(); ?>
-	<?php mysql_query("UPDATE users SET lastseen=".$timenow." WHERE steamid=".$_SESSION['steamid'].""); ?>
-	<a href=<?php echo $steamprofile['profileurl']; ?> target="_blank" rel="nofollow"></a>
-	<img src=<?php echo $steamprofile['avatar']; ?>>
-	<div class="desc">
-	<a class="name" href=<?php echo $steamprofile['profileurl']; ?> target="_blank" rel="nofollow"> <?php echo $steamprofile['personaname']; ?></a>
-	<a class="deposit" href="https://steamcommunity.com/tradeoffer/new/?partner=427986800&token=Lv8txF4G">MAKE A DEPOSIT </a>  
-	<a class="logout" href="steamauth/logout.php">Logout </a>
+	<ul>
+		<li class="logo">
+			<a href="index.php" data-page="play"></a>
+		</li>
+		<li class="active">
+			<a href="index.php" class="play" data-page="play">
+				<span></span>Play
+			</a>
+		</li> 
+		<li class="separator"><!-- separtor li -->
+		</li>
+		<li>
+			<a href="en/winners.php" class="winners" data-page="winners">
+				<span></span>Top players
+			</a>
+		</li> 
+		<li class="separator"><!-- separtor li -->
+		</li>
+		<li>
+			<a href="history.php" class="history" data-page="history">
+				<span></span>History
+			</a>
+		</li> 
+		<?php 
+			if(!isset($_SESSION["steamid"])):
+		?>
+		<li class="separator"><!-- separtor li -->
+		</li>
+			<li class="mini"><a href="en/faq.php" class="faq" data-page="faq">
+				<i class="fa fa-question-circle"></i>FAQ
+			</a>
+		</li>
+		<?php
+			else:
+		?>
+		<li class="separator"><!-- separtor li -->
+		</li>
+		<li>
+			<a href="settings.php" class="settings" data-page="settings"> 
+				<span> </span>Settings
+			</a>
+		</li>
+		<li class="separator"><!-- separtor li -->
+		</li>
+		<li class="mini">
+			<a href="en/faq.php" class="faq" data-page="faq">
+				<i class="fa fa-question-circle"></i>FAQ
+			</a>
+		</li>
+		<?php
+			endif;
+		?> 
+		<li class="separator"><!-- separtor li -->
+		</li>
+		<li class="mini">
+			<a href="en/rules.php" class="rules" data-page="rules">
+				<i class="fa fa-shield"></i>Rules
+			</a>
+		</li> 
+		<li class="separator"><!-- separtor li -->
+		</li> 
+		<li class="mini">
+			<a href="https://Website.com/support" class="support" target="_blank">
+				<i class="fa fa-life-ring"></i>Support
+			</a>
+		</li> 
+	</ul> 
+</div>
+<div id="container">
+	<div id="content-hidden">
+		<div class="col-lg-offset-19 col-lg-5 bglayer"></div>
+	</div> 
+	<div id="top"> 
+		<a href="index.php" class="sitename transition" data-page="play">WEB
+			<span class="transition">site</span>.com - your skins etc!
+		</a>
+		<ul id="right-section"> 
+			<li class="el promo leadtext">
+				Add <span>website.com</span> to your steam name and get 
+				<span>+6%</span> bonus<br/> to your winnings! (relog website)
+			</li> 
+			<li class="el" id="sign-in">
+				<?php 
+					if(!isset($_SESSION["steamid"])):
+				?>
+				<?php
+					steamlogin();
+				?>
+				<a href="?login" id="steam-login-url" rel="nofollow"></a> 
+			</li>
+			<?php
+				else:
+			?>
+			<li class="el" id="user-panel">
+				<?php
+					$timenow = time();
+				?>
+				<?php
+					mysql_query("UPDATE users SET lastseen=".$timenow." WHERE steamid=".$_SESSION['steamid']."");
+				?>
+				<a href=<?php echo $steamprofile['profileurl']; ?> target="_blank" rel="nofollow"></a>
+				<img src=<?php echo $steamprofile['avatar']; ?>>
+				<div class="desc">
+					<a class="name" href=<?php echo $steamprofile['profileurl']; ?> target="_blank" rel="nofollow">
+					<?php echo $steamprofile['personaname']; ?></a>
+					<a class="deposit" href="https://steamcommunity.com/tradeoffer/new/?partner=427986800&token=Lv8txF4G">MAKE A DEPOSIT </a>  
+					<a class="logout" href="steamauth/logout.php">Logout </a>
+				</div>
+			</li>
+			<?php 
+				mysql_query("UPDATE users SET steamprofile='".$steamprofile['profileurl']."', name='".$steamprofile['personaname']."', avatar='".$steamprofile['avatarfull']."' WHERE steamid='".$_SESSION["steamid"]."'");
+			?>
+			<?php
+				endif;
+			?>
+			<li class="el" id="langs">
+				<div class="btn-group">
+					<button type="button" class="dropdown-toggle lang-en" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> EN
+						<span class="caret"></span>
+					</button> 
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li class="ru">
+							<a class="lang-ru" href="ru.php"></a>
+						</li> 
+						<li class="en">
+							<a class="lang-en" href="en.php"></a>
+						</li>
+					</ul> 
+				</div> 
+			</li> 
+		</ul>
 	</div>
-	</li>
-	<?php mysql_query("UPDATE users SET steamprofile='".$steamprofile['profileurl']."', name='".$steamprofile['personaname']."', avatar='".$steamprofile['avatarfull']."' WHERE steamid='".$_SESSION["steamid"]."'");?>
- <?php endif; ?>
-	<li class="el" id="langs"> <div class="btn-group"> <button type="button" class="dropdown-toggle lang-en" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> EN <span class="caret"></span>
-	 </button> <ul class="dropdown-menu dropdown-menu-right"> <li class="ru"><a class="lang-ru" href="ru.php"></a></li> 
-		<li class="en"><a class="lang-en" href="en.php"></a></li>
-	 </ul> </div> </li> </ul> </div> <div id="top-bar">
-<center>
+	<div id="top-bar">
+		<center>
+			<div class="itemsdiv">
+				<div class="hhdgfbd"></div>
+				<div class="kjmhgd"></div>
+				<section class="rounditems" style="margin: auto;"> 
+					<?php include('raffleanim.php'); ?>
+				</section>		
+			</div>
+		</center>
 
-
-
-		<div class="itemsdiv">
-		<div class="hhdgfbd"></div>
-		<div class="kjmhgd"></div>
-		<section class="rounditems" style="margin: auto;"> 
-		<?php include('raffleanim.php'); ?>
-		
-		</section>
-				
-		</div>
-
-		
-</center>
-
-	 <div id="spinner" class=" col-lg-13"> <div class="line"></div> <div class="spinner"> 
-	 <ul class="cont"> </ul> </div> </div> <div class="col-lg-13 col border-right col-spinner"> <div class="col-xs-12 col-sm-8 col-md-8 icon-col"> 
-	 <div class="users-online ico"> <div class="img"></div> 
-	 <span id="users-online" class="h3"><?php
-											$result = mysql_query("SELECT id FROM games WHERE `starttime` > ".(time()-86400));
-											$result2 = mysql_query("SELECT id FROM users WHERE `lastseen` > ".(time()-86400));
-											echo mysql_num_rows($result2);
-										?></span> <?php echo $msg[$lang]["ptd"]; ?> </div> </div> <div class="col-xs-12 col-sm-8 col-md-8 icon-col"> 
-	 <div class="games-today ico"> <div class="img"></div> <span id="games-today" class="h3"><?php
-										$result2 = mysql_query("SELECT id FROM users WHERE `lastseen` > ".(time()-86400));
-										echo mysql_num_rows($result); ?></span> <?php echo $msg[$lang]["gtd"]; ?> </div> </div> <div class="col-sm-8 col-md-8 icon-col hidden-xs"> <div class="biggest-win ico"> 
-	 <div class="img">
-	 </div> <span id="biggest-win" class="h3">
-	 <?php /*
-						$result = mysql_query("SELECT MAX(cost) AS cost FROM games");
-						$row = mysql_fetch_assoc($result);
-						$maxcost =  $row["cost"];
-						*/
-						$result = mysql_query("SELECT * FROM games ORDER BY cost*1 DESC LIMIT 1");
-						$row = mysql_fetch_assoc($result);
-						$maxcost =  $row["cost"];
+		<div id="spinner" class=" col-lg-13">
+			<div class="line"></div>
+			<div class="spinner"> 
+				<ul class="cont"> </ul> 
+			</div>
+		</div> 
+		<div class="col-lg-13 col border-right col-spinner">
+			<div class="col-xs-12 col-sm-8 col-md-8 icon-col"> 
+				<div class="users-online ico">
+					<div class="img"></div> 
+						<span id="users-online" class="h3">
+							<?php
+								$result = mysql_query("SELECT id FROM games WHERE `starttime` > ".(time()-86400));
+								$result2 = mysql_query("SELECT id FROM users WHERE `lastseen` > ".(time()-86400));
+								echo mysql_num_rows($result2);
+							?>
+						</span> 
+						<?php echo $msg[$lang]["ptd"]; ?> 
+				</div> 
+			</div> 
+			<div class="col-xs-12 col-sm-8 col-md-8 icon-col"> 
+				<div class="games-today ico">
+					<div class="img"></div>
+						<span id="games-today" class="h3">
+							<?php
+								$result2 = mysql_query("SELECT id FROM users WHERE `lastseen` > ".(time()-86400));
+								echo mysql_num_rows($result); 
+							?>
+						</span>
+						<?php echo $msg[$lang]["gtd"]; ?> 
+				</div>
+			</div> 
+			<div class="col-sm-8 col-md-8 icon-col hidden-xs">
+				<div class="biggest-win ico"> 
+					<div class="img"></div>
+					<span id="biggest-win" class="h3">
+						<?php /*
+							$result = mysql_query("SELECT MAX(cost) AS cost FROM games");
+							$row = mysql_fetch_assoc($result);
+							$maxcost =  $row["cost"];
+							*/
+							$result = mysql_query("SELECT * FROM games ORDER BY cost*1 DESC LIMIT 1");
+							$row = mysql_fetch_assoc($result);
+							$maxcost =  $row["cost"];
 						?>
-						$<?php echo round($maxcost,2); ?></span> <?php echo $msg[$lang]["mwin"]; ?> </div> 
+						$<?php
+							echo round($maxcost,2);
+						?>
+					</span> 
+					<?php
+						echo $msg[$lang]["mwin"];
+					?> 
+				</div> 
 	 </div> </div> 
 	 <div class="col-lg-6 col hidden-md hidden-xs hidden-sm"> 
 	 <div id="user-room-panel"> 
