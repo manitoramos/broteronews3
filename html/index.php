@@ -484,75 +484,101 @@ a:hover .xtooltip {
 						echo $msg[$lang]["mwin"];
 					?> 
 				</div> 
-	 </div> </div> 
-	 <div class="col-lg-6 col hidden-md hidden-xs hidden-sm"> 
-	 <div id="user-room-panel"> 
-	 <div class="ico"> </div>
-	 <ul> <li>NO SOUVENIR ITEMS! TO DEPOSIT YOU MUST HAVE STEAM AUTHENTICATOR ENABLED!</li> <li>Probably to win <span id="mychance">0%</span>. Min bet <span>$0.5</span></li> </ul> </div>  </div>
-	 <div align="center" class="col-lg-5 border-left social col hidden-md hidden-xs hidden-sm"> 
-	 <br><br>Hello my friend</br>Change this bar to anything you want.
-</div> </div> 
-	 <div id="content"> <div class="col-lg-9 affix-room "> <div id="affix-room" class="">
+			</div>
+		</div> 
+		<div class="col-lg-6 col hidden-md hidden-xs hidden-sm"> 
+			<div id="user-room-panel"> 
+				<div class="ico"> </div>
+					<ul> 
+						<li>NO SOUVENIR ITEMS! TO DEPOSIT YOU MUST HAVE STEAM AUTHENTICATOR ENABLED!</li>
+						<li>Probably to win <span id="mychance">0%</span>. Min bet <span>$0.5</span></li>
+					</ul>
+			</div> 
+		</div>
+		<div align="center" class="col-lg-5 border-left social col hidden-md hidden-xs hidden-sm"> 
+			<br><br>Hello my friend</br>Change this bar to anything you want.
+		</div>
+	</div> 
+	 <div id="content">
+		<div class="col-lg-9 affix-room ">
+			<div id="affix-room" class="">
 
 
-<br/><br/> <div id="circle-container"> <div id="circle" class=""> 
-	<script>/*
-		var source = new EventSource('systemmessages.php');
-		source.onmessage = function(e) {
-			document.getElementById("systemalert").innerHTML = e.data;
-			timedMsg();
-			console.log('Data received from ssesystemmessages: '+e.data);
-		};*/
-	</script>
-
-<span id="systemalert" style="text-align:center;">
-
-</span>
-<span id="alert" style="text-align:center;">
-</span>
+			<br/><br/> 
+				<div id="circle-container">
+					<div id="circle" class=""> 
+						<script>/*
+							var source = new EventSource('systemmessages.php');
+							source.onmessage = function(e) {
+								document.getElementById("systemalert").innerHTML = e.data;
+								timedMsg();
+								console.log('Data received from ssesystemmessages: '+e.data);
+							};*/
+						</script>
+						<span id="systemalert" style="text-align:center;"></span>
+						<span id="alert" style="text-align:center;"></span>
 <!--circleeeeeeeeeeeeeeeeeeeeeeeeee -->
-<div class="visual" style="float: left;">
-<p class="progressbar__label" style=" color: #008BFF;font-weight: 300; font-size: 42px;">0/50</p>
-<div id="prograsd" style="position: relative;">
 
-<span id="money_round" class="bankbbas">$<span id="bank"><?php echo round(fetchinfo("cost","games","id",$lastgame),2); ?>
-</span></span> </div>
-</br>
-</br>
-
- <?php 
- if(!isset($_SESSION["steamid"])): ?>
-				<?php steamlogin(); ?>
-	<a class="btn btn-primary btn-lg" href="?login">LOG IN TO DEPOSIT</a>
-<?php else: ?>
-	<?php $token = fetchinfo("tlink","users","steamid",$_SESSION["steamid"]); ?>
-	<?php if(strlen($token)<2): ?>
-	 <a class="btn btn-primary btn-lg" href="/settings.php" class="settings" data-page="settings">ADD TRADE URL</a>
-<?php else: ?>
-
-
-	Time left: <h4 id="countdown-timer"><span id="timeleft">0</span></h4>
-	<a class="btn btn-primary btn-lg" style="text-decoration: none;" href="https://steamcommunity.com/tradeoffer/new/?partner=427986800&token=Lv8txF4G" target="_blank" ><?php echo $msg[$lang]["ingame"]; ?> </a>
-
-	<?php endif; ?>
-<?php endif; ?>
-</div>
-
-
-<br>
-
-	</div> </div><h5 id="round-hash" class="hidden"><?php echo md5(3); ?></h5> 
-	 <h6 id="room-id" class="hide"></h6> </div> </div>
-
-	 <div class="col-lg-4 border-right border-left affix-items scrollbar" id="room-items"> 
-
-
-	 <div id="dropboxy">
-		<?php
-		?>
-	 </div>
-
- </div>
+						<div class="visual" style="float: left;">
+							<p class="progressbar__label" style=" color: #008BFF;font-weight: 300; font-size: 42px;">0/50</p>
+							<div id="prograsd" style="position: relative;">
+								<span id="money_round" class="bankbbas">$
+									<span id="bank">
+										<?php 
+											echo round(fetchinfo("cost","games","id",$lastgame),2); 
+										?>
+									</span>
+								</span> 
+							</div>
+							</br>
+							</br>
+							<?php 
+								if(!isset($_SESSION["steamid"])): 
+							?>
+								<?php 
+									steamlogin();
+								?>
+								<a class="btn btn-primary btn-lg" href="?login">LOG IN TO DEPOSIT</a>
+							<?php
+								else:
+							?>
+								<?php
+									$token = fetchinfo("tlink","users","steamid",$_SESSION["steamid"]); 
+								?>
+								<?php
+									if(strlen($token)<2):
+								?>
+									<a class="btn btn-primary btn-lg" href="/settings.php" class="settings" data-page="settings">ADD TRADE URL</a>
+									<?php 
+										else: 
+									?>
+									Time left: <h4 id="countdown-timer">
+									<span id="timeleft">0</span></h4>
+									<a class="btn btn-primary btn-lg" style="text-decoration: none;" href="https://steamcommunity.com/tradeoffer/new/?partner=427986800&token=Lv8txF4G" target="_blank" ><?php echo $msg[$lang]["ingame"]; ?> </a>
+								<?php 
+									endif;
+								?>
+							<?php
+								endif;
+							?>
+						</div>
+						<br>
+					</div>
+				</div>
+					<h5 id="round-hash" class="hidden">
+						<?php 
+							echo md5(3);
+						?>
+					</h5> 
+					<h6 id="room-id" class="hide"></h6> 
+			</div>
+		</div>
+		<div class="col-lg-4 border-right border-left affix-items scrollbar" id="room-items"> 
+			<div id="dropboxy">
+				<?php
+				?>
+			</div>
+		</div>
 
 <div class="col-lg-6 affix-players" style="padding:10px;">
 	<div id="playersdropboxy">
