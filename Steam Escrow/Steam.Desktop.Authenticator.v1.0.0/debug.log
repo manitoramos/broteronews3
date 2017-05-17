@@ -3,3 +3,13 @@
 [0516/104025:WARNING:raw_channel_win.cc(529)] WriteFile: O encaminhamento (pipe) está a ser fechado. (0xE8)
 [0516/104025:WARNING:channel.cc(558)] Failed to send message to ack remove remote endpoint (local ID 3, remote ID 2147483649)
 [0516/104025:WARNING:channel.cc(322)] RawChannel write error
+[0516/153811:WARNING:dns_config_service_win.cc(673)] Failed to read DnsConfig.
+[0516/153816:WARNING:dns_config_service_win.cc(673)] Failed to read DnsConfig.
+[0516/153821:WARNING:dns_config_service_win.cc(673)] Failed to read DnsConfig.
+[0516/153826:WARNING:dns_config_service_win.cc(673)] Failed to read DnsConfig.
+[0516/153831:WARNING:dns_config_service_win.cc(673)] Failed to read DnsConfig.
+[0516/153836:WARNING:dns_config_service_win.cc(673)] Failed to read DnsConfig.
+[0516/153841:WARNING:dns_config_service_win.cc(673)] Failed to read DnsConfig.
+[0516/153846:WARNING:dns_config_service_win.cc(673)] Failed to read DnsConfig.
+[0516/153851:WARNING:dns_config_service_win.cc(673)] Failed to read DnsConfig.
+[0516/153856:WARNING:dns_config_service_win.cc(673)] Failed to read DnsConfig.

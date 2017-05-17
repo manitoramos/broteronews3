@@ -1060,7 +1060,44 @@ include 'chatfunctions.php';
 			</div> 
 		</script> 
 		<script id="history-template" type="text/x-handlebars-template"> 
-			<div class="cont row"> <div class="col-xs-24 header"> <span class="text-left col-xs-12">{{date_humanize}}</span> <span class="text-right col-xs-12">{{winner.count_items}} item(s)</span> </div> <div class="col-xs-24 body"> <div class="col-xs-16 col-sm-16"> <a rel="nofollow" target="_blank" href="{{winner.steam_profileurl}}" class="img hidden-xs"><img src="{{winner.steam_avatarfull}}"></a> <a rel="nofollow" target="_blank" href="{{winner.steam_profileurl}}" class="name">{{winner.steam_nickname}}</a> </div> <div class="right text-right"> <span class="win">Win: <span>${{price_all}}</span></span> <span class="chance">Chance: <span>{{winner.percent}}%</span></span> </div> </div> <div class="col-xs-24 footer"> <h5>Winning with the commission</h5> {{#list items}}{{/list}} </div> </div> 
+			<div class="cont row">
+				<div class="col-xs-24 header"> 
+					<span class="text-left col-xs-12">
+						{{date_humanize}}
+					</span>
+					<span class="text-right col-xs-12">
+						{{winner.count_items}} item(s)
+					</span>
+				</div>
+				<div class="col-xs-24 body">
+					<div class="col-xs-16 col-sm-16"> 
+						<a rel="nofollow" target="_blank" href="{{winner.steam_profileurl}}" class="img hidden-xs">
+							<img src="{{winner.steam_avatarfull}}">
+						</a>
+						<a rel="nofollow" target="_blank" href="{{winner.steam_profileurl}}" class="name">
+							{{winner.steam_nickname}}
+						</a>
+					</div>
+					<div class="right text-right"> 
+						<span class="win">
+							Win: 
+							<span>
+								${{price_all}}
+							</span>
+						</span>
+						<span class="chance">
+							Chance:
+							<span>
+								{{winner.percent}}%
+							</span>
+						</span>
+					</div> 
+				</div> 
+				<div class="col-xs-24 footer">
+					<h5>Winning with the commission</h5>
+					{{#list items}}{{/list}}
+				</div> 
+			</div> 
 		</script> 
 		<script id="winner-row-template" type="text/x-handlebars-template"> 
 			<tr class="{{#if is_top}} top{{/if}}">

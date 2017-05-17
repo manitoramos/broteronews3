@@ -1,10 +1,10 @@
-var admin = ''; // STEAM ID 64 OF YOUR MAIN ACCOUNT WHERE YOU WANT TO RECIEVE YOUR COMMISSION : GET IT AT HTTP://WWW.STEAMID.IO/
+var admin = '76561198388252528'; // STEAM ID 64 OF YOUR MAIN ACCOUNT WHERE YOU WANT TO RECIEVE YOUR COMMISSION : GET IT AT HTTP://WWW.STEAMID.IO/
 
 // CSGO.NETWORK - New information required
 
-var botsteamid =''; // STEAM ID 64 OF YOUR BOT ACCOUNT : GET IT AT HTTP://WWW.STEAMID.IO/
-var shared_secret =''; // SHARED SECRET CODE YOU CAN GET IT THROUGH : 2FA / STEAM DESKTOP AUTHENTICATOR ( BOTH OPTIONS ARE INCLUDED ) 
-var identity_secret=''; // IDENTITY SECRET CODE YOU CAN GET IT THROUGH : 2FA / STEAM DESKTOP AUTHENTICATOR ( BOTH OPTIONS ARE INCLUDED )
+var botsteamid ='76561198388252528'; // STEAM ID 64 OF YOUR BOT ACCOUNT : GET IT AT HTTP://WWW.STEAMID.IO/
+var shared_secret ='/PY4OJ5k8PqExeD0525ec/d2QFo='; // SHARED SECRET CODE YOU CAN GET IT THROUGH : 2FA / STEAM DESKTOP AUTHENTICATOR ( BOTH OPTIONS ARE INCLUDED ) 
+var identity_secret='IomV+KkAL6K5DUF6zlac/N423fA='; // IDENTITY SECRET CODE YOU CAN GET IT THROUGH : 2FA / STEAM DESKTOP AUTHENTICATOR ( BOTH OPTIONS ARE INCLUDED )
 
 // CSGO.NETWORK - New Libraries
 var SteamTotp = require('steam-totp'); // CSGO.NETWORK - This library generates the key
@@ -13,8 +13,8 @@ var pooling_interval  = 10000; // CSGO.NETWORK - This is how often it will check
 
 
 var logOnOptions = {
-	accountName: '', // BOT ACCOUNT LOGIN USERNAME
-	password: '', // BOT ACCOUNT LOGIN PASSWORD
+	accountName: 'brobotcsgo', // BOT ACCOUNT LOGIN USERNAME
+	password: 'china17..', // BOT ACCOUNT LOGIN PASSWORD
 	twoFactorCode: SteamTotp.generateAuthCode(shared_secret) // CSGO.NETWORK - The code is generated here like it would be shown on your phone every time you log in
 };
 var GameTime = 120;
